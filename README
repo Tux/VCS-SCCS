@@ -1,0 +1,38 @@
+VCS::SCCS
+    An attempt to convert SCCS files to something more modern
+
+DESCRIPTION
+    SCCS (Source Code Control System) is a historical and maybe even
+    obsolete VCS (Version Control System).
+
+    This interface aims at the possibility to read those files,
+    without the need of the sccs utility set, and open up to the
+    possibility of scripts that use it to convert to more modern
+    VCSs like git, Mercurial, or subversion.
+
+PREREQUISITES
+    perl-5.6.x
+
+    Tested on our own repositories with perl version 5.6.2, 5.8.x-dor
+    and 5.10.0. 
+
+BUILDING AND INSTALLATION
+    As all CPAN modules:
+	# perl Makefile.PL
+	# make test
+	# make install
+
+CHANGES
+    See ChangeLog
+
+OTHER LINKS
+    How do I convert from SCCS or RCS to CVS
+	http://www.gigascale.org/softdevel/faq/17.html
+
+COPYRIGHT AND LICENSE
+    Copyright (C) 1999-2007 H.Merijn Brand
+
+    This library is free software; you can redistribute it and/or modify
+    it under the same terms as Perl itself. 
+
+As always, have the appropriate amount of fun!
