@@ -46,25 +46,27 @@ my %file;
 
 foreach my $f (@sccs) {
     my $sccs = VCS::SCCS->new ($f) or die "Cannot convert $f\n";
+    # GIT supports get-hooks, to translate on retrieval
+    # But it will be useless as you cannot translate back
+    $sccs->set_translate ("SCCS");
     my $fn = $sccs->file ();
     $file{$fn}++;
     foreach my $rm (@{$sccs->revision_map ()}) {
 	my ($rev, $vsn) = @{$rm};
-	$sccs{pack "NA*", $sccs->delta ($rev)->{stamp}} = [ $sccs, $rev, ++$mark ];
+	my $delta = $sccs->delta ($rev);
+	$sccs{pack "NA*", $delta->{stamp}, $fn} = [ $sccs, $rev, ++$mark ];
 	my $data = scalar $sccs->body ($rev);
 	print { $gfi } "blob\nmark :", $mark,
 			   "\ndata ", length ($data),
 			   "\n", $data, "\n";
-	printf STDERR "%-20s %3d\r", $fn, $rev;
+	printf STDERR "%-20s %3d %8s  %s\r",
+	    $fn, $rev, $vsn, pr_date ($delta->{stamp});
 	}
     print STDERR "\n";
     }
 
 foreach my $c (sort keys %sccs) {
     my ($sccs, $rev, $mark) = @{$sccs{$c}};
-
-    # GIT supports get-hooks, to translate on retrieval
-    # $sccs->set_translate ("git");
 
     my $fn    = $sccs->file ();
     my %delta = %{$sccs->delta ($rev)};
@@ -79,22 +81,15 @@ foreach my $c (sort keys %sccs) {
 	    ($delta{committer}, "@", $domain, "> ", $delta{stamp},
 	     " ", $tzoffset->($delta{stamp}), "\n");
 
-    # Do the git actions to put this file in git ...
+    # tradition is to save all potentially useful but
+    # uncategorized metadata as RFC822-style headers in the commit
+    # message
     my $mr  = $delta{mr} || ""; $mr =~ s/^-$//;
-    if  ($mr) {
-	# tradition is to save all potentially useful but
-	# uncategorized metadata as RFC822-style headers in the commit
-	# message
-	$mr = "SCCS-mr: $mr";
-	}
-    if ($vsn) {
-	$vsn = "SCCS-vsn: $vsn";
-	}
+    $mr  and $mr  = "SCCS-mr: $mr";
+    $vsn and $vsn = "SCCS-vsn: $vsn";
     my $cmnt = $delta{comment} || "";
-    unless ($cmnt) {
-	$cmnt = "(no message)";
-	}
-    $cmnt .= "\n";
+    $cmnt ||= "(no message)";
+    $cmnt  .= "\n";
     my $msg  = join "\n", $cmnt, grep m/\S/, $mr, $vsn;
 
     print { $gfi } "data ", length ($msg), "\n$msg\n";
@@ -105,3 +100,5 @@ foreach my $c (sort keys %sccs) {
     }
 
 print { $gfi } "checkpoint\n";
+
+system "git-checkout";
