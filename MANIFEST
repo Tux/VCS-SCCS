@@ -13,4 +13,3 @@ t/00_pod.t
 t/01_pod.t
 t/10_base.t
 t/20_translate.t
-META.yml                                 Module meta-data (added by MakeMaker)
