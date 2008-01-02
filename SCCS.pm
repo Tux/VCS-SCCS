@@ -1,6 +1,6 @@
 #!/pro/bin/perl
 
-# Copyright (c) 2007-2007 H.Merijn Brand.  All rights reserved.
+# Copyright (c) 2007-2008 H.Merijn Brand.  All rights reserved.
 
 package VCS::SCCS;
 
