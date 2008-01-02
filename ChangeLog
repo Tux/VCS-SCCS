@@ -1,3 +1,9 @@
+*** 0.11 Wed 02 Jan 2008 <h.m.brand@xs4all.nl>
+
+	- Update copyrights to 2008
+	- Tested under perl-5.10.0
+	- Added the prereq's to Makefile.PL
+
 *** 0.10 Wed 05 Dec 2007 <h.m.brand@xs4all.nl>
 
 	- examples/sccs2git-gfi uses git-fast-import (Sam Vilain)
