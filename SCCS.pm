@@ -11,7 +11,7 @@ use POSIX  qw(mktime);
 use Carp;
 
 use vars qw( $VERSION );
-$VERSION = "0.11";
+$VERSION = "0.12";
 
 ### ###########################################################################
 
@@ -627,7 +627,9 @@ any missing keywords will not be translated.
 =over 4
 
 =item delta
+
 =item delta (<revision>)
+
 =item delta (<version>)
 
 If called without argument, it returns the delta of the last revision
@@ -707,6 +709,7 @@ The comment as entered with this delta
 =back
 
 =item version
+
 =item version (<revision>)
 
 If called without argument, it returns the last version, just as
@@ -717,6 +720,7 @@ matches that revision. It returns undef if no matching version is
 found.
 
 =item revision
+
 =item revision (<version>)
 
 If called without argument, it returns the last revision, just as
@@ -738,7 +742,9 @@ anonymous lists).
 =over 4
 
 =item body
+
 =item body (<revision>)
+
 =item body (<version>)
 
 In scalar context returns the full body for the given revision.
