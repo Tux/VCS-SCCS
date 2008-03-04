@@ -1,7 +1,9 @@
-*** 0*12 Tue 04 Mar 2008 <h.m.brand@xs4all.nl>
+*** 0.12 Tue 04 Mar 2008 <h.m.brand@xs4all.nl>
 
 	- Pod fixes
 	- $sccs->file () should return file name without sub-folder
+	- added examples/sccs2git-r : recursive collect SCCS repos into
+	  a single GIT repo
 
 *** 0.11 Wed 02 Jan 2008 <h.m.brand@xs4all.nl>
 
