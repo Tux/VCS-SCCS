@@ -163,8 +163,7 @@ sub new
 sub file
 {
     my $self = shift;
-    (my $filename = $self->{file}) =~ s{.*/}{};
-    return $filename;
+    return $self->{file};
     } # file
 
 sub checksum
@@ -310,11 +309,13 @@ sub translate
     my $type = $self->{tran}    or return $line;
     exists $self->{delta}{$rev} or return $line;
 
+    (my $def_M = $self->file ()) =~ s{.*/}{};
+
     # TODO (or don't): %D%, %H%, %T%, %G%, %F%, %P%, %C%
     my %delta = %{$self->delta ($rev)};
     my $I = $delta{version};
     my $Z = "@(#)";
-    my $M = exists $self->{flags}{"m"} ? $self->{flags}{"m"} : $self->file ();
+    my $M = exists $self->{flags}{"m"} ? $self->{flags}{"m"} : $def_M;
     my $Q = exists $self->{flags}{"q"} ? $self->{flags}{"q"} : "";
     my $Y = exists $self->{flags}{"t"} ? $self->{flags}{"t"} : "";
     $tran{SCCS}{"%U%"} = $delta{"time"};
