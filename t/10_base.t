@@ -48,7 +48,7 @@ ok (1, "Parsing");
 ok ($sccs = VCS::SCCS->new ($testfile), "Read and parse large SCCS file");
 
 ok (1, "Metadata");
-is ($sccs->file (),		"files/base.dta",	"file ()");
+is ($sccs->file (),		"base.dta",	"file ()");
 is ($sccs->checksum (),		52534,		"checksum ()");
 is (scalar $sccs->current (),	70,		"current () scalar");
 is_deeply ([ $sccs->current () ],

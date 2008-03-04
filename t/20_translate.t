@@ -48,7 +48,7 @@ is ($sccs->translate (2, "%U%"), "02:02:02", "translate SCCS %U% 2");
 is ($sccs->translate (1, "%U%"), "01:01:01", "translate SCCS %U% 1");
 is ($sccs->translate (2, "%E%R%U%"),
 			 "07/12/01R02:02:02", "translate SCCS %U%R%E% 2");
-is (length ($sccs->body (2)),		65,	"body (2)     scalar");
+is (length ($sccs->body (2)),		59,	"body (2)     scalar");
 
 $sccs->set_translate ("RCS");
 #is ($sccs->translate (2, "%E%"), "%E%", "translate 'RCS' %E% 2");

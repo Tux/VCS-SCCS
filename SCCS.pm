@@ -163,7 +163,8 @@ sub new
 sub file
 {
     my $self = shift;
-    return $self->{file};
+    (my $filename = $self->{file}) =~ s{.*/}{};
+    return $filename;
     } # file
 
 sub checksum
@@ -440,7 +441,7 @@ VCS::SCCS - OO Interface to SCCS files
  my $sccs = VCS::SCCS->new ("SCCS/s.file.pl");   # Read and parse
 
  # Meta info
- my $fn = $sccs->file ();            # s.file.pl
+ my $fn = $sccs->file ();            # file.pl
  my $cs = $sccs->checksum ();        # 52534
  my @us = $sccs->users ();           # qw( merijn user )
  my $fl = $sccs->flags ();           # { q => "Test applic", v => undef }
