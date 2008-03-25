@@ -52,8 +52,9 @@ my $tzoffset = sub {
 my %sccs;
 my %file;
 my @fail;
-foreach my $f (@sccs) {
-    my $sccs = VCS::SCCS->new ($f);
+foreach my $f (sort @sccs) {
+    my $sccs;
+    eval { $sccs = VCS::SCCS->new ($f) };
     unless ($sccs) {
 	warn "Cannot convert $f\n";
 	push @fail, $f;
@@ -113,6 +114,8 @@ foreach my $c (sort keys %sccs) {
 
 print { $gfi } "checkpoint\n";
 
+close $gfi;
+
 system "git-checkout";
 
 open my $gi, ">", ".gitignore";
@@ -158,4 +161,4 @@ system "git", "add", ".gitignore";
 system "git", "commit", "-m", "Add default ignore list";
 
 @fail and print STDERR join "\n    ",
-    "The following files could not be converted and were skipped:", @fail;
+    "The following files could not be converted and were skipped:", @fail, "\r";

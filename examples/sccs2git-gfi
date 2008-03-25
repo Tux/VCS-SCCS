@@ -5,7 +5,7 @@ use warnings;
 
 use VCS::SCCS;
 
-my @sccs = glob ("SCCS/s.*")       or die "No SCCS source files to convert\n";
+my @sccs = sort glob ("SCCS/s.*") or die "No SCCS source files to convert\n";
 
 -d ".git" and die ".git already exists\n";
 system "git init";
@@ -100,5 +100,7 @@ foreach my $c (sort keys %sccs) {
     }
 
 print { $gfi } "checkpoint\n";
+
+close $gfi;
 
 system "git-checkout";
