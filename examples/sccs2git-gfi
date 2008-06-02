@@ -104,3 +104,23 @@ print { $gfi } "checkpoint\n";
 close $gfi;
 
 system "git-checkout";
+system "git", "reset", "--hard";
+
+# Add personalized generation of .gitignore here ...
+open my $gi, ">", ".gitignore";
+print $gi <<EOG;
+SCCS
+core
+old
+save
+*.log
+*.out
+*.sv
+*.t[gb]z
+*.tar.gz
+*.tar.bz2
+*.zip
+EOG
+
+system "git", "add", ".gitignore";
+system "git", "commit", "-m", "Add default ignore list";

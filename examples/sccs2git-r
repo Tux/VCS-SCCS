@@ -117,19 +117,16 @@ print { $gfi } "checkpoint\n";
 close $gfi;
 
 system "git-checkout";
+system "git", "reset", "--hard";
 
 open my $gi, ">", ".gitignore";
 print $gi <<EOG;
 SCCS
 core
-lo
-llo
 old
 save
-xx
 *.log
 *.out
-*.prs
 *.sv
 *.t[gb]z
 *.zip
