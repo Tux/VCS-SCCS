@@ -68,7 +68,7 @@ author:
 generated_by:      Author
 distribution_type: module
 provides:
-    Data::Peek:
+    VCS::SCCS:
         file:      SCCS.pm
         version:   VERSION
 requires:     
