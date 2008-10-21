@@ -1,4 +1,4 @@
-*** 0.12 Tue 04 Mar 2008 <h.m.brand@xs4all.nl>
+*** 0.12 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 
 	- Pod fixes
 	- $sccs->file () should return file name without sub-folder
