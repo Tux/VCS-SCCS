@@ -1,3 +1,7 @@
+*** 0.14 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
+
+	- Makefile.PL added wrong META.yml
+
 *** 0.13 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 
 	- examples/sccs2git-r was not in MANIFEST
