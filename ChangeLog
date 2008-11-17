@@ -1,3 +1,7 @@
+*** 0.15 Mon 17 Nov 2008 <h.m.brand@xs4all.nl>
+
+	- Wrong e-mail in META.yml
+
 *** 0.14 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 
 	- Makefile.PL added wrong META.yml
