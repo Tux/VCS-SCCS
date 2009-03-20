@@ -4,7 +4,8 @@ use strict;
 use warnings;
 
 #use Test::More "no_plan";
-use Test::More tests => 30;
+use Test::More tests => 31;
+use Test::NoWarnings;
 
 BEGIN {
     use_ok ("VCS::SCCS");

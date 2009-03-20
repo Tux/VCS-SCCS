@@ -1,7 +1,8 @@
-*** 0.15 Sat 03 Jan 2009 <h.m.brand@xs4all.nl>
+*** 0.15 Fri 20 Mar 2009 <h.m.brand@xs4all.nl>
 
 	- Wrong e-mail in META.yml
 	- Copyright 2009
+	- Added Test::NoWarnings
 
 *** 0.14 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 

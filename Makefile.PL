@@ -12,10 +12,11 @@ my %wm = (
     AUTHOR        =>   "H.Merijn Brand <h.m.brand\@xs4all.nl>",
     VERSION_FROM  =>   "SCCS.pm",
     ABSTRACT_FROM =>   "SCCS.pm",
-    PREREQ_PM     => { "Test::More" => 0,
-		       "Carp"       => 0,
-		       "File::Spec" => 0,
-		       "POSIX"      => 0,
+    PREREQ_PM     => { "Test::More"		=> 0,
+		       "Carp"			=> 0,
+		       "File::Spec"		=> 0,
+		       "POSIX"			=> 0,
+		       "Test::NoWarnings"	=> 0,
 		       },
     dist	  => { DIST_DEFAULT => "tgzdist" }, # I hate .tar.gz
     );

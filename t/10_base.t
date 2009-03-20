@@ -5,7 +5,8 @@ use warnings;
 
 use File::Spec;
 #use Test::More "no_plan";
-use Test::More tests => 82;
+use Test::More tests => 83;
+use Test::NoWarnings;
 
 BEGIN {
     use_ok ("VCS::SCCS");
