@@ -9,3 +9,4 @@ MANIFEST.SKIP
 pm_to_blib
 tmp/
 sandbox/
+\.releaserc

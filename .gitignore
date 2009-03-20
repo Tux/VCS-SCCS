@@ -6,3 +6,4 @@ cover_db
 Makefile
 pm_to_blib
 tmp
+.releaserc
