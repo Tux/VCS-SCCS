@@ -18,7 +18,7 @@ my %wm = (
 		       "POSIX"			=> 0,
 		       "Test::NoWarnings"	=> 0,
 		       },
-    dist	  => { DIST_DEFAULT => "tgzdist" }, # I hate .tar.gz
+#   dist	  => { DIST_DEFAULT => "tgzdist" }, # I hate .tar.gz
     );
 $ExtUtils::MakeMaker::VERSION > 6.30 and $wm{LICENSE} = "perl";
 
