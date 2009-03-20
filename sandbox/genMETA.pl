@@ -82,6 +82,7 @@ build_requires:
     Test::More:    0
 resources:
     license:       http://dev.perl.org/licenses/
+    repository:    http://repo.or.cz/w/VCS-SCCS.git
 meta-spec:
     version:       1.4
     url:           http://module-build.sourceforge.net/META-spec-v1.4.html
