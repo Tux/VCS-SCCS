@@ -59,31 +59,33 @@ else {
 
 __END__
 --- #YAML:1.1
-name:                 VCS::SCCS
-version:              VERSION
-abstract:             OO Interface to SCCS files
-license:              perl
+name:                    VCS::SCCS
+version:                 VERSION
+abstract:                OO Interface to SCCS files
+license:                 perl
 author:              
     - H.Merijn Brand <h.m.brand@xs4all.nl>
-generated_by:         Author
-distribution_type:    module
+generated_by:            Author
+distribution_type:       module
 provides:
     VCS::SCCS:
-        file:         SCCS.pm
-        version:      VERSION
+        file:            SCCS.pm
+        version:         VERSION
 requires:     
-    perl:             5.006
-    Carp:             0
-    POSIX:            0
-    File::Spec:       0
+    perl:                5.006
+    Carp:                0
+    POSIX:               0
+    File::Spec:          0
+configure_requires:
+    ExtUtils::MakeMaker: 0
 build_requires:
-    perl:             5.006
-    Test::Harness:    0
-    Test::More:       0
-    Test::NoWarnings: 0
+    perl:                5.006
+    Test::Harness:       0
+    Test::More:          0
+    Test::NoWarnings:    0
 resources:
-    license:          http://dev.perl.org/licenses/
-    repository:       http://repo.or.cz/w/VCS-SCCS.git
+    license:             http://dev.perl.org/licenses/
+    repository:          http://repo.or.cz/w/VCS-SCCS.git
 meta-spec:
-    version:          1.4
-    url:              http://module-build.sourceforge.net/META-spec-v1.4.html
+    version:             1.4
+    url:                 http://module-build.sourceforge.net/META-spec-v1.4.html
