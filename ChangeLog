@@ -1,89 +1,93 @@
-*** 0.15 Fri 20 Mar 2009 <h.m.brand@xs4all.nl>
+* 0.16 Tue 16 Mar 2009 <h.m.brand@xs4all.nl>
 
-	- Wrong e-mail in META.yml
-	- Copyright 2009
-	- Added Test::NoWarnings
+    - Upped copyright to 2010
 
-*** 0.14 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
+* 0.15 Fri 20 Mar 2009 <h.m.brand@xs4all.nl>
 
-	- Makefile.PL added wrong META.yml
+    - Wrong e-mail in META.yml
+    - Copyright 2009
+    - Added Test::NoWarnings
 
-*** 0.13 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
+* 0.14 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 
-	- examples/sccs2git-r was not in MANIFEST
-	- provides in META.yml was wrong
+    - Makefile.PL added wrong META.yml
 
-*** 0.12 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
+* 0.13 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 
-	- Pod fixes
-	- $sccs->file () should return file name without sub-folder
-	- added examples/sccs2git-r : recursive collect SCCS repos into
-	  a single GIT repo
+    - examples/sccs2git-r was not in MANIFEST
+    - provides in META.yml was wrong
 
-*** 0.11 Wed 02 Jan 2008 <h.m.brand@xs4all.nl>
+* 0.12 Tue 21 Oct 2008 <h.m.brand@xs4all.nl>
 
-	- Update copyrights to 2008
-	- Tested under perl-5.10.0
-	- Added the prereq's to Makefile.PL
+    - Pod fixes
+    - $sccs->file () should return file name without sub-folder
+    - added examples/sccs2git-r : recursive collect SCCS repos into
+      a single GIT repo
 
-*** 0.10 Wed 05 Dec 2007 <h.m.brand@xs4all.nl>
+* 0.11 Wed 02 Jan 2008 <h.m.brand@xs4all.nl>
 
-	- examples/sccs2git-gfi uses git-fast-import (Sam Vilain)
-	- examples/sccs2git-add uses a file-by file approach
-	- win32 has strange ways of dealing with /dev/null^WFile::Spec->devnull ()
-	- Module itself now also under git :)
+    - Update copyrights to 2008
+    - Tested under perl-5.10.0
+    - Added the prereq's to Makefile.PL
 
-*** 0.09 Mon 03 Dec 2007 <h.m.brand@xs4all.nl>
+* 0.10 Wed 05 Dec 2007 <h.m.brand@xs4all.nl>
 
-	- Found a "R" delta to test
-	- Checked a complete SCCS tree
-	- examples/sccs2git now applies in original order accross files and
-	  adds most usefull info from sccs
-	- More translate work
+    - examples/sccs2git-gfi uses git-fast-import (Sam Vilain)
+    - examples/sccs2git-add uses a file-by file approach
+    - win32 has strange ways of dealing with /dev/null^WFile::Spec->devnull ()
+    - Module itself now also under git :)
 
-*** 0.08 Mon 03 Dec 2007 <h.m.brand@xs4all.nl>
+* 0.09 Mon 03 Dec 2007 <h.m.brand@xs4all.nl>
 
-	- /dev/null unknown on braindead OS's, skip to File::Spec->devnull ()
-	  . Does MSWin support SCCS at all?
-	- make dist now automatically makes a tgz, so I don't have to move
-	  it to .tgz
-	- moved SCCS files to files/SCCS/ for a better reflection of the truth
-	  and preparation of conversion tests
-	- examples/sccs2git actually works now! Let's rock ...
+    - Found a "R" delta to test
+    - Checked a complete SCCS tree
+    - examples/sccs2git now applies in original order accross files and
+      adds most usefull info from sccs
+    - More translate work
 
-*** 0.07 Mon 03 Dec 2007 <h.m.brand@xs4all.nl>
+* 0.08 Mon 03 Dec 2007 <h.m.brand@xs4all.nl>
 
-	- Test suite assumed chmod 0000, file to work on windows and cygwin
-	- Added docs for SCCS keywords
-	- Added keyword translations (currently only SCCS and custom)
-	- Added tests for keyword translations
-	- Implemented delta () method
-	- Documented much more
+    - /dev/null unknown on braindead OS's, skip to File::Spec->devnull ()
+      . Does MSWin support SCCS at all?
+    - make dist now automatically makes a tgz, so I don't have to move
+      it to .tgz
+    - moved SCCS files to files/SCCS/ for a better reflection of the truth
+      and preparation of conversion tests
+    - examples/sccs2git actually works now! Let's rock ...
 
-*** 0.06 Fri 30 Nov 2007 <h.m.brand@xs4all.nl>
+* 0.07 Mon 03 Dec 2007 <h.m.brand@xs4all.nl>
 
-	- Basic documentation
-	- Basic tests for implemented functionality (Devel::Cover++)
+    - Test suite assumed chmod 0000, file to work on windows and cygwin
+    - Added docs for SCCS keywords
+    - Added keyword translations (currently only SCCS and custom)
+    - Added tests for keyword translations
+    - Implemented delta () method
+    - Documented much more
 
-*** 0.05 Fri 30 Nov 2007 <h.m.brand@xs4all.nl>
+* 0.06 Fri 30 Nov 2007 <h.m.brand@xs4all.nl>
 
-	- In testing 0.03, I accidentally remove the requirement for 5.006
-	- Lifted the 5.8 requirement in README
+    - Basic documentation
+    - Basic tests for implemented functionality (Devel::Cover++)
 
-*** 0.04 Fri 30 Nov 2007 <h.m.brand@xs4all.nl>
+* 0.05 Fri 30 Nov 2007 <h.m.brand@xs4all.nl>
 
-	- Remove the last remains of the needless refs to Dynaloader
-	- I'm sure I removed that defined-or before. Anyway, 5.006 is back
+    - In testing 0.03, I accidentally remove the requirement for 5.006
+    - Lifted the 5.8 requirement in README
 
-*** 0.03 Thu 29 Nov 2007 <h.m.brand@xs4all.nl>
+* 0.04 Fri 30 Nov 2007 <h.m.brand@xs4all.nl>
 
-	- Require perl-5.8. 5.6.2 fails, and I have no idea why
-	  Chickening out, but I have no tuits to find out
+    - Remove the last remains of the needless refs to Dynaloader
+    - I'm sure I removed that defined-or before. Anyway, 5.006 is back
 
-*** 0.02 Thu 29 Nov 2007 <h.m.brand@xs4all.nl>
+* 0.03 Thu 29 Nov 2007 <h.m.brand@xs4all.nl>
 
-	- First real tests and incorporated feedback from Johan Vromans
+    - Require perl-5.8. 5.6.2 fails, and I have no idea why
+      Chickening out, but I have no tuits to find out
 
-*** 0.01 Thu 29 Nov 2007 <h.m.brand@xs4all.nl>
+* 0.02 Thu 29 Nov 2007 <h.m.brand@xs4all.nl>
 
-	- Initial attempt started at Wed 28 Nov 2007
+    - First real tests and incorporated feedback from Johan Vromans
+
+* 0.01 Thu 29 Nov 2007 <h.m.brand@xs4all.nl>
+
+    - Initial attempt started at Wed 28 Nov 2007
