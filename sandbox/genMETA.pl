@@ -58,7 +58,7 @@ else {
     }
 
 __END__
---- #YAML:1.1
+--- #YAML:1.0
 name:                    VCS::SCCS
 version:                 VERSION
 abstract:                OO Interface to SCCS files
