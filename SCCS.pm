@@ -11,7 +11,7 @@ use POSIX  qw(mktime);
 use Carp;
 
 use vars qw( $VERSION );
-$VERSION = "0.16";
+$VERSION = "0.17";
 
 ### ###########################################################################
 
@@ -879,7 +879,7 @@ manual page for sccsfile for HP-UX in doc/
 
 =head1 EXAMPLES
 
-See the files in examples/ for my attempts to start convertors to
+See the files in examples/ for my attempts to start converters to
 other VCSs
 
 =head1 BUGS AND LIMITATIONS
@@ -917,7 +917,7 @@ A GNU project that aims to be a drop-in replacement for SCCS. It is
 written in c++ and therefor disqualifies to be used at any older OS
 that does support SCCS but has no C++ compiler. And even if you have
 one, there is a good chance it won't build or does not bass the basic
-tests. I didn't get it to work.
+tests. I did not get it to work.
 
 VCS - http://search.cpan.org/dist/VCS
 
