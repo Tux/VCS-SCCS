@@ -28,7 +28,7 @@ sub new
     -e $fn			or croak ("$fn does not exist");
     -f $fn			or croak ("$fn is not a file");
     -s $fn			or croak ("$fn is empty");
-    (my $filename = $fn) =~ s{\bSCCS/s\.(?=[^/]+$)}{};
+    (my $filename = $fn) =~ s{\b(?:SCCS|sccs)/s\.(?=[^/]+$)}{};
 
     open my $fh, "<", $fn	or croak ("Cannot open '$fn': $!");
 
