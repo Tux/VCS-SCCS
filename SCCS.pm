@@ -910,18 +910,34 @@ First errors, than diagnostics ...
 
 =head1 SEE ALSO
 
-SCCS - http://en.wikipedia.org/wiki/Source_Code_Control_System
+=over 2
 
-CSSC - https://sourceforge.net/projects/cssc
+=item SCCS
+
+source code at http://sccs.berlios.de/
+
+manual pages at http://sccs.berlios.de/man/index.html
+
+http://en.wikipedia.org/wiki/Source_Code_Control_System
+
+=item CSSC
+
+https://sourceforge.net/projects/cssc
 A GNU project that aims to be a drop-in replacement for SCCS. It is
 written in c++ and therefor disqualifies to be used at any older OS
 that does support SCCS but has no C++ compiler. And even if you have
 one, there is a good chance it won't build or does not bass the basic
 tests. I did not get it to work.
 
-VCS - http://search.cpan.org/dist/VCS
+=item VCS
 
-GIT - http://www.kernel.org/pub/software/scm/git/docs/
+http://search.cpan.org/dist/VCS
+
+=item GIT
+
+http://www.kernel.org/pub/software/scm/git/docs/
+
+=back
 
 =head1 AUTHOR
 
