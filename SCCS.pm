@@ -258,7 +258,7 @@ sub revision_map
     } # revision
 
 my %tran = (
-    SCCS	=> {	# Ducumentation only
+    SCCS	=> {	# Documentation only
 	},
     RCS		=> {
 #	"%W%[ \t]*%G%"			=> '$""Id""$',
@@ -578,13 +578,44 @@ File was given a list of releases to which deltas can no longer be made.
 
 File has a user defined value for the %Q% keyword.
 
-=item x
+=item s <line count>
 
-File was flagged to set execution bit on get.
+Defines the number of lines scanned for keyword expansion. Past that
+line, no keyword expansion takes place. Not implemented in all version.
+
+This flag is a SUN extension that does not exist in historic SCCS
+implementations and is completely ignored by C<VCS::SCCS>.
+
+=item x (HP-UX, SCO)
+
+File was flagged to set execution bit on get. This is the implementation
+that VCS::SCCS knows about.
+
+=item x SCHILY|0 (other)
+
+Enable SCCS extensions that are not implemented in classical SCCS
+variants. If the C<x> flag is enabled, the keywords %D%, %E%, %G%
+and %H% are expanded even though not explicitly enabled by the C<y>
+flag.
+
+This flag is a SCHILY extension that does not exist in historic SCCS
+implementations.
+
+=item y <val> ...
+
+The list of SCCS keywords to be expanded. If the C<y> flag is missing,
+all keywords are expanded. If the flag is present but the list is empty,
+no keyword is expanded and no "No id keywords" message is generated. The
+value C<*> controls the expansion of the %sccs.include.filename% keyword.
+
+This flag is a SUN/SCHILY extension that does not exist in historic SCCS
+implementations.
+
+This flag is currently ignored in C<VCS::SCCS>.
 
 =item z <reserved for use in interfaces>
 
-File was flagged to set execution bit on get.
+Used in Sun's NSE system.
 
 =back
 
@@ -851,7 +882,7 @@ The 4-character string @(#) @(#) recognizable by what (see what(1)).
 
 =item %W%
 
-A shorthand notation for constructing what(1) strings for HP?UX system
+A shorthand notation for constructing what(1) strings for HP-UX system
 program files.  %W%=%Z%%M%horizontal-tab%I%
 
 =item %A%
