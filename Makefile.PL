@@ -7,8 +7,7 @@ require 5.006;
 use ExtUtils::MakeMaker;
 
 my %wm = (
-    NAME	  =>   "VCS::SCCS",
-    DISTNAME	  =>   "VCS-SCCS",
+    NAME	  =>   "VCS-SCCS",
     AUTHOR        =>   "H.Merijn Brand <h.m.brand\@xs4all.nl>",
     VERSION_FROM  =>   "SCCS.pm",
     ABSTRACT_FROM =>   "SCCS.pm",
