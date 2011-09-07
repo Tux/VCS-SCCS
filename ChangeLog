@@ -1,3 +1,7 @@
+* 0.20 Wed 07 Sep 2011 <h.m.brand@xs4all.nl>
+
+    - NAME / DISTNAME in Makefile.PL
+
 * 0.19 Wed 07 Sep 2011 <h.m.brand@xs4all.nl>
 
     - More cross-checks for META data
