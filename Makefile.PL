@@ -19,6 +19,8 @@ my %wm = (
 		       "Test::NoWarnings"	=> 0,
 		       },
 #   dist	  => { DIST_DEFAULT => "tgzdist" }, # I hate .tar.gz
+    macro         => { TARFLAGS => "--format=ustar -c -v -f",
+		       },
     );
 $ExtUtils::MakeMaker::VERSION > 6.30 and $wm{LICENSE} = "perl";
 
