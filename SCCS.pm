@@ -140,6 +140,7 @@ sub new
     # Flags
     # ^Af q Project name
     # ^Af v ...
+    # ^Af e 1
     while (m/^\cAf \s+ (\S) \s* (.+)?$/x) {
 	$sccs{flags}{$1} = $2;
 	$_ = <$fh>;
@@ -424,6 +425,12 @@ sub body
 	$want and push @body, $self->_tran ($_);
 #	printf STDERR "%2d.%04d/%s: %-29.29s |%s\n", $r, scalar @body, $want, $v->(), $_;
 	}
+
+    if ($self->{flags}{e} && @body && $body[0] =~ m/^[\x20-\x60]{1,61}$/) {
+	my $body = unpack "u" => join "\n" => @body;
+	$body and @body = split m/\n/ => $body;
+	}
+
     return wantarray ? @body : join "\n", @body, "";
     } # body
 
