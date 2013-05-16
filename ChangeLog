@@ -1,6 +1,6 @@
 0.21	- 16 May 2013, H.Merijn Brand
-    * Copyright 2012
     * Support for binary files (^Af e 1)
+    * Copyright 2013
 
 0.20	- 07 Sep 2011, H.Merijn Brand
     * NAME / DISTNAME in Makefile.PL
