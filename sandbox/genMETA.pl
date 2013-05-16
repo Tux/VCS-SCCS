@@ -52,7 +52,7 @@ requires:
     POSIX:               0
     File::Spec:          0
 recommends:     
-    perl:                5.014002
+    perl:                5.018000
 configure_requires:
     ExtUtils::MakeMaker: 0
 test_requires:
