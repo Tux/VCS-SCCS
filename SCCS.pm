@@ -358,7 +358,7 @@ sub body
 
     $self->translate ($r, "");	# Initialize translate hash
 
-    my $w = 1;
+    my $want = 1;
     for (@{$self->{body}}) {
 	if (m/^\cAE\s+(\d+)$/) {
 	    my $e = $1;
@@ -404,25 +404,25 @@ sub body
 		splice @lvl, $x, 1;
 		last;
 		}
-	    $w = (grep { $_->[0] == 0 } @lvl) ? 0 : 1;
+	    $want = (grep { $_->[0] == 0 } @lvl) ? 0 : 1;
 	    next;
 	    }
 	if (m/^\cAI\s+(\d+)$/) {
 	    push @lvl, [ $r >= $1 ? 1 : 0, "I", $1 ];
-	    $w = (grep { $_->[0] == 0 } @lvl) ? 0 : 1;
+	    $want = (grep { $_->[0] == 0 } @lvl) ? 0 : 1;
 	    next;
 	    }
 	if (m/^\cAD\s+(\d+)$/) {
 	    push @lvl, [ $r >= $1 ? 0 : 1, "D", $1 ];
-	    $w = (grep { $_->[0] == 0 } @lvl) ? 0 : 1;
+	    $want = (grep { $_->[0] == 0 } @lvl) ? 0 : 1;
 	    next;
 	    }
 	if (m/^\cA(.*)/) {
 	    carp "Unsupported SCCS control: ^A$1, line skipped";
 	    next;
 	    }
-	$w and push @body, $self->_tran ($_);
-#	printf STDERR "%2d.%04d/%s: %-29.29s |%s\n", $r, scalar @body, $w, $v->(), $_;
+	$want and push @body, $self->_tran ($_);
+#	printf STDERR "%2d.%04d/%s: %-29.29s |%s\n", $r, scalar @body, $want, $v->(), $_;
 	}
     return wantarray ? @body : join "\n", @body, "";
     } # body
