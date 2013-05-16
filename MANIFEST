@@ -9,6 +9,7 @@ examples/sccs2git-add
 examples/sccs2git-gfi
 examples/sccs2git-r
 files/SCCS/s.base.dta
+files/SCCS/s.binary.dta
 files/SCCS/s.tran.dta
 t/00_pod.t
 t/01_pod.t
