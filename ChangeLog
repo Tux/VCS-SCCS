@@ -1,5 +1,6 @@
 0.22	- 19 Aug 2013, H.Merijn Brand
     - Use new style git invocation for checkout in examples
+    - Redo TZ offset. It should be in +HHMM, not +SSSS
 
 0.21	- 16 May 2013, H.Merijn Brand
     * Support for binary files (^Af e 1)
