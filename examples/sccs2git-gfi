@@ -103,7 +103,7 @@ print { $gfi } "checkpoint\n";
 
 close $gfi;
 
-system "git-checkout";
+system "git", "checkout";
 system "git", "reset", "--hard";
 
 # Add personalized generation of .gitignore here ...
