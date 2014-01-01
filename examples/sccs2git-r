@@ -77,7 +77,8 @@ foreach my $f (sort @sccs) {
 	print { $gfi } "blob\nmark :", $mark,
 			   "\ndata ", length ($data),
 			   "\n", $data, "\n";
-	printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn, pr_date ($delta->{stamp});
+	printf STDERR "%-20s %3d %8s  %s\r", $fn, $rev, $vsn,
+	    pr_date ($delta->{stamp});
 	}
     print STDERR "\n";
     }
