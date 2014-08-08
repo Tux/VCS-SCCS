@@ -952,9 +952,9 @@ First errors, than diagnostics ...
 
 =item SCCS
 
-source code at http://sccs.berlios.de/
+source code at http://sccs.sourceforge.net/
 
-manual pages at http://sccs.berlios.de/man/index.html
+manual pages at http://sccs.sourceforge.net/man/index.html
 
 http://en.wikipedia.org/wiki/Source_Code_Control_System
 
@@ -983,7 +983,7 @@ H.Merijn Brand <h.m.brand@xs4all.nl>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2007-2012 H.Merijn Brand
+Copyright (C) 2007-2014 H.Merijn Brand
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.

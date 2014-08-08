@@ -60,7 +60,7 @@ test_requires:
     Test::More:          0
     Test::NoWarnings:    0
 test_recommends:
-    Test::More:          1.001002
+    Test::More:          1.001003
 resources:
     license:             http://dev.perl.org/licenses/
     repository:          http://repo.or.cz/w/VCS-SCCS.git
