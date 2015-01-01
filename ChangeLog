@@ -1,3 +1,6 @@
+0.23	- 01 Jan 2015, H.Merijn Brand
+    - Copyright 2015
+
 0.22	- 08 Aug 2014, H.Merijn Brand
     * Use new style git invocation for checkout in examples
     * Redo TZ offset. It should be in +HHMM, not +SSSS
