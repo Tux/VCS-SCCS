@@ -53,14 +53,14 @@ requires:
     POSIX:               0
     File::Spec:          0
 recommends:     
-    perl:                5.018001
+    perl:                5.020001
 configure_requires:
     ExtUtils::MakeMaker: 0
 test_requires:
     Test::More:          0
     Test::NoWarnings:    0
 test_recommends:
-    Test::More:          1.001003
+    Test::More:          1.001014
 resources:
     license:             http://dev.perl.org/licenses/
     repository:          http://repo.or.cz/w/VCS-SCCS.git
