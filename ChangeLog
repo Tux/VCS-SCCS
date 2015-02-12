@@ -1,5 +1,6 @@
-0.23	- 01 Jan 2015, H.Merijn Brand
-    - Copyright 2015
+0.23	- 12 Feb 2015, H.Merijn Brand
+    * Copyright 2015
+    * Move repo to github
 
 0.22	- 08 Aug 2014, H.Merijn Brand
     * Use new style git invocation for checkout in examples

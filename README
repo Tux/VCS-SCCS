@@ -27,6 +27,18 @@ BUILDING AND INSTALLATION
 CHANGES
     See ChangeLog
 
+    Recent changes can be (re)viewed in the public GIT repository at
+    https://github.com/Tux/VCS-SCCS
+
+    Feel free to clone your own copy:
+
+     $ git clone https://github.com/Tux/VCS-SCCS VCS-SCCS
+
+    or get it as a tgz:
+
+     $ wget --output-document=VCS-SCCS-git.tgz \
+	   https://github.com/Tux/VCS-SCCS/archive/master.tar.gz
+
 OTHER LINKS
     SCCS is OpenSource
 	http://sccs.berlios.de/
