@@ -52,8 +52,6 @@ requires:
     Carp:                0
     POSIX:               0
     File::Spec:          0
-recommends:     
-    perl:                5.020001
 configure_requires:
     ExtUtils::MakeMaker: 0
 test_requires:

@@ -1,6 +1,7 @@
 0.23	- 12 Feb 2015, H.Merijn Brand
     * Copyright 2015
     * Move repo to github
+    * Remove perl recommendation from META as it breaks cpan clients
 
 0.22	- 08 Aug 2014, H.Merijn Brand
     * Use new style git invocation for checkout in examples
