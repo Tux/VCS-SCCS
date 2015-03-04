@@ -2,6 +2,7 @@
 \.tgz$
 \.old$
 \.git
+\.travis.yml
 blib/
 cover_db/
 Makefile
