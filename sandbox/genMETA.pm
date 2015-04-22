@@ -2,7 +2,7 @@
 
 package genMETA;
 
-our $VERSION = "1.04-20130212";
+our $VERSION = "1.05-20150419";
 
 use 5.014;
 use warnings;
@@ -13,6 +13,7 @@ use Encode qw( encode decode );
 use Term::ANSIColor qw(:constants);
 use Date::Calc qw( Delta_Days );
 use Test::CPAN::Meta::YAML::Version;
+use CPAN::Meta::Validator;
 use CPAN::Meta::Converter;
 use Test::More ();
 use Parse::CPAN::Meta;
@@ -278,11 +279,13 @@ sub check_changelog
 	    ([0-9]{4})\b/x or next;
 	my ($d, $m, $y) = ($1 + 0, ($mnt{lc $2} || $2) + 0, $3 + 0);
 	printf STDERR "Most recent ChangeLog entry is dated %02d-%02d-%04d\n", $d, $m, $y;
-	my @t = localtime;
-	my $D = Delta_Days ($y, $m , $d, $t[5] + 1900, $t[4] + 1, $t[3]);
-	$D < 0 and die  RED,    "Last entry in $td[0] is in the future!",               RESET, "\n";
-	$D > 2 and die  RED,    "Last entry in $td[0] is not up to date ($D days ago)", RESET, "\n";
-	$D > 0 and warn YELLOW, "Last entry in $td[0] is not today",                    RESET, "\n";
+	unless ($ENV{SKIP_CHANGELOG_DATE}) {
+	    my @t = localtime;
+	    my $D = Delta_Days ($y, $m , $d, $t[5] + 1900, $t[4] + 1, $t[3]);
+	    $D < 0 and die  RED,    "Last entry in $td[0] is in the future!",               RESET, "\n";
+	    $D > 2 and die  RED,    "Last entry in $td[0] is not up to date ($D days ago)", RESET, "\n";
+	    $D > 0 and warn YELLOW, "Last entry in $td[0] is not today",                    RESET, "\n";
+	    }
 	last;
 	}
     } # check_changelog
@@ -352,6 +355,10 @@ sub fix_meta
 
     $jsn = CPAN::Meta::Converter->new ($jsn)->convert (version => "2");
     $jsn->{generated_by} = "Author";
+
+    my $cmv = CPAN::Meta::Validator->new ($jsn);
+    $cmv->is_valid or
+	die join "\n" => RED, "META Validator found fail:\n", $cmv->errors, RESET, "";
 
     my @my = glob <*/META.yml> or croak "No META files";
     my $yf = $my[0];
