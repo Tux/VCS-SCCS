@@ -2,6 +2,7 @@ ChangeLog
 MANIFEST
 Makefile.PL
 README
+CONTRIBUTING.md
 SCCS.pm
 doc/sccsfile.4
 doc/sccsfile.man
