@@ -58,7 +58,7 @@ test_requires:
     Test::More:          0
     Test::NoWarnings:    0
 test_recommends:
-    Test::More:          1.302015
+    Test::More:          1.302019
 resources:
     license:             http://dev.perl.org/licenses/
     repository:          https://github.com/Tux/VCS-SCCS
