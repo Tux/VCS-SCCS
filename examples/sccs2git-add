@@ -54,6 +54,16 @@ foreach my $c (sort keys %sccs) {
 
     system "git", "add", $fn;
 
+    #
+    # Advance earlier epoch timestamp to git epoch timestamp.
+    # git considers anything with timestamp earlier
+    # than 100000000 since epoch as invalid timestamp.
+    #
+    if ($delta{stamp} < 100000000) {
+	$delta{stamp} = $delta{stamp} + 1;
+	$stamp = pr_date ($delta{stamp} + 1);
+    }
+
     # Do the git actions to put this file in git ...
     my $mr   = $delta{mr} || ""; $mr =~ s/^-$//;
     my $cmnt = $delta{comment} || "";

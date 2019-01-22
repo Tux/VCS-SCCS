@@ -93,6 +93,14 @@ foreach my $c (sort keys %sccs) {
     printf STDERR "%-20s %3d %6s  %s %s %s\n", $fn, $rev, $vsn,
 	$stamp, $delta{date}, $delta{"time"};
 
+    #
+    # Advance earlier epoch timestamp to git epoch timestamp.
+    # git considers anything with timestamp earlier
+    # than 100000000 since epoch as invalid timestamp.
+    #
+    if ($delta{stamp} < 100000000) {
+	$delta{stamp} = $delta{stamp} + 1;
+    }
     print { $gfi } "commit ", $branchname, "\n";
     print { $gfi } "committer ", $delta{committer},
 	" <", $delta{committer}, "@", $domain, "> ",
