@@ -3,6 +3,7 @@
 \.old$
 \.git
 \.travis.yml
+\.whitesource
 blib/
 cover_db/
 Makefile
