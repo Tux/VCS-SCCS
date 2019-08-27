@@ -1,9 +1,12 @@
 language: perl
 os:
   - linux
+dist: trusty
 perl:
+  - "5.30"
   - "5.28"
   - "5.26"
+  - "5.26-shrplib"
   - "5.24"
   - "5.22"
   - "5.20"
@@ -13,3 +16,14 @@ perl:
   - "5.12"
   - "5.10"
   - "5.8"
+env:
+  global:
+    - AUTOMATED_TESTING=1
+install:
+  - cpanm --quiet --installdeps --with-all-features --notest . || true
+notifications:
+  irc:
+    channels:
+      - "irc.perl.org#csv"
+    on_success: always
+    on_failure: always
