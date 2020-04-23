@@ -9,6 +9,27 @@ use warnings;
 use VCS::SCCS;
 use File::Find;
 
+our $VERSION = "0.26 - 20200423";
+our $CMD = $0; $CMD =~ s{.*/}{};
+
+sub usage {
+    my $err = shift and select STDERR;
+    print "usage: $CMD\n\n";
+    print "This script has no options. It will convert - recursively -\n";
+    print "a tree of SCCS repositories to git starting in the current folder\n";
+    print "The script expects a working git command in your \$PATH\n";
+    exit $err;
+    } # usage
+
+use CSV;
+use Getopt::Long qw(:config bundling);
+GetOptions (
+    "help|?"		=> sub { usage (0); },
+    "V|version"		=> sub { say "$CMD [$VERSION]"; exit 0; },
+
+    "v|verbose:1"	=> \(my $opt_v = 0),
+    ) or usage (1);
+
 my %sccs_ext;
 my @sccs;
 find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
