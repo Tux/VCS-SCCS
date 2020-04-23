@@ -453,7 +453,7 @@ VCS::SCCS - OO Interface to SCCS files
  # Content related
  my $body_70 = $sccs->body ();       # file.pl @70 incl NL's
  my @body_70 = $sccs->body ();       # file.pl @70 list of chomped lines
- my @body_69 = $sccs->body (69);     # same for file.pl @96
+ my @body_69 = $sccs->body (69);     # same for file.pl at revision 69
  my @body_69 = $sccs->body ("5.38"); # same
 
  $sccs->set_translate ("SCCS");
