@@ -1,6 +1,7 @@
 0.26	- 23 Apr 2020, H.Merijn Brand
     * Small doc fix (typo)
     * Add --help to sccs2git-r
+    * Name sccs2git-r in README
 
 0.25	- 09 Apr 2020, H.Merijn Brand
     * It's 2017
