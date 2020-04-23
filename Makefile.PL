@@ -6,12 +6,26 @@ require 5.006;
 
 use ExtUtils::MakeMaker;
 
+sub link_or_copy {
+    my ($source, $dest) = @_;
+
+    link ($source, $dest) or copy ($source, $dest);
+    } # link_or_copy
+
+my @exe;
+unless (exists $ENV{AUTOMATED_TESTING} and $ENV{AUTOMATED_TESTING} == 1) {
+    -f "examples/sccs2git" or link_or_copy "examples/sccs2git-r", "examples/sccs2git";
+    prompt ("Do you want to install sccs2git ?", "y") =~ m/[Yy]/ and
+	push @exe, "examples/sccs2git";
+    }
+
 my %wm = (
     NAME	  =>   "VCS::SCCS",
     DISTNAME	  =>   "VCS-SCCS",
     AUTHOR        =>   "H.Merijn Brand <h.m.brand\@xs4all.nl>",
     VERSION_FROM  =>   "SCCS.pm",
     ABSTRACT_FROM =>   "SCCS.pm",
+    EXE_FILES     => [ @exe ],
     PREREQ_PM     => { "Test::More"		=> 0,
 		       "Carp"			=> 0,
 		       "File::Spec"		=> 0,

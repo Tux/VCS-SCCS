@@ -12,3 +12,4 @@ MYMETA.yml
 pm_to_blib
 tmp
 .releaserc
+examples/sccs2git

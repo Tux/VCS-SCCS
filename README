@@ -42,6 +42,7 @@ USING IT
     If you plan to do more conversions, change the first line of the
     file examples/sccs2git-r to reflect the location of your perl binary
     and install it into somewhere in your $PATH and make it executable.
+    The call `perl Makefile.PL` will ask you to install this script.
 
 CHANGES
     See ChangeLog

@@ -1,4 +1,4 @@
-#!/pro/bin/perl
+#!/usr/bin/perl
 
 # This is the recursive version of sccs2git
 # Combining all SCCS repos to one single git repo
@@ -14,9 +14,10 @@ our $CMD = $0; $CMD =~ s{.*/}{};
 
 sub usage {
     my $err = shift and select STDERR;
-    print "usage: $CMD\n\n";
-    print "This script has no options. It will convert - recursively -\n";
-    print "a tree of SCCS repositories to git starting in the current folder\n";
+    print "usage: $CMD [--no-recurse]\n\n";
+    print "    --no-recurse  Only convert the current folder to git\n\n";
+    print "This script will convert - recursively by default - a tree\n";
+    print "of SCCS repositories to git starting in the current folder\n";
     print "The script expects a working git command in your \$PATH\n";
     exit $err;
     } # usage
@@ -25,17 +26,24 @@ use CSV;
 use Getopt::Long qw(:config bundling);
 GetOptions (
     "help|?"		=> sub { usage (0); },
-    "V|version"		=> sub { say "$CMD [$VERSION]"; exit 0; },
+    "V|version"		=> sub { print "$CMD [$VERSION]\n"; exit 0; },
 
-    "v|verbose:1"	=> \(my $opt_v = 0),
+    "r|recursive!"	=> \(my $recurse = 1),
+
+    "v|verbose:1"	=> \(my $opt_v   = 0),
     ) or usage (1);
 
 my %sccs_ext;
 my @sccs;
-find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
-	    push @sccs, $File::Find::name;
-	    m/\.(\w+)$/ and $sccs_ext{$1}++;
-	  }, glob "*");
+if ($recurse) {
+    find (sub { $File::Find::dir =~ m{(?:^|/)SCCS$} and m/^s\./ or return;
+		push @sccs, $File::Find::name;
+		m/\.(\w+)$/ and $sccs_ext{$1}++;
+	      }, glob "*");
+    }
+else {
+    -d "SCCS" and push @sccs => "SCCS";
+    }
 
 @sccs or die "No SCCS source files to convert\n";
 

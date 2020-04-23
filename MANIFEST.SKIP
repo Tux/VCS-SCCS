@@ -18,3 +18,4 @@ tmp/
 sandbox/
 \.releaserc
 \.aspell\.local\.pws
+examples/sccs2git$
