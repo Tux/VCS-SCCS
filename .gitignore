@@ -1,6 +1,7 @@
 *.old
 *.tar.gz
 *.tgz
+*.tmp
 blib
 cover_db
 Makefile

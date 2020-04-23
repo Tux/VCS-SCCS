@@ -30,8 +30,7 @@ my $rv = WriteMakefile (%wm);
 
 package MY;
 
-sub postamble
-{
+sub postamble {
     my $valgrind = join " ", qw(
 	PERL_DESTRUCT_LEVEL=2 PERL_DL_NONLAZY=1
 	    valgrind
@@ -67,10 +66,20 @@ sub postamble
 	'	perl sandbox/genMETA.pl',
 	'	ls -l */META.yml',
 	'',
-	'tgzdist:	checkmeta fixmeta $(DISTVNAME).tar.gz distcheck',
+	'tgzdist:	doc checkmeta fixmeta $(DISTVNAME).tar.gz distcheck',
 	'	-@mv -f $(DISTVNAME).tar.gz $(DISTVNAME).tgz',
 	'	-@cpants_lint.pl $(DISTVNAME).tgz',
 	'	-@rm -f Debian_CPANTS.txt',
+	'',
+	'doc docs:		doc/VCS-SCCS.md doc/VCS-SCCS.html doc/VCS-SCCS.man',
+	'doc/VCS-SCCS.md:	SCCS.pm',
+	'	pod2markdown  < $? > $@',
+	'doc/VCS-SCCS.html:	SCCS.pm',
+	'	pod2html      < $? 2>&1 | grep -v "^Cannot find" > $@',
+	'doc/VCS-SCCS.3:	SCCS.pm',
+	'	pod2man       < $? > $@',
+	'doc/VCS-SCCS.man:	doc/VCS-SCCS.3',
+	'	nroff -mandoc < $? > $@',
 	'';
     } # postamble
 

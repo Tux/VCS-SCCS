@@ -2,6 +2,7 @@
     * Small doc fix (typo)
     * Add --help to sccs2git-r
     * Name sccs2git-r in README
+    * Add static docs in doc/
 
 0.25	- 09 Apr 2020, H.Merijn Brand
     * It's 2017
