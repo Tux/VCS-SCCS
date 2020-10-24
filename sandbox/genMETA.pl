@@ -63,6 +63,7 @@ test_recommends:
 resources:
     license:             http://dev.perl.org/licenses/
     repository:          https://github.com/Tux/VCS-SCCS
+    bugtracker:          https://github.com/Tux/VCS-SCCS/issues
 meta-spec:
     version:             1.4
     url:                 http://module-build.sourceforge.net/META-spec-v1.4.html
