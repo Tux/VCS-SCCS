@@ -4,7 +4,7 @@ package genMETA;
 
 our $VERSION = "1.12-20220913";
 
-use 5.14.1;
+use 5.014001;
 use warnings;
 use Carp;
 
