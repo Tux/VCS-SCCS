@@ -11,7 +11,7 @@ use POSIX  qw(mktime);
 use Carp;
 
 use vars qw( $VERSION );
-$VERSION = "0.28";
+$VERSION = "0.29";
 
 ### ###########################################################################
 
