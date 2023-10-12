@@ -1,5 +1,6 @@
-0.29	- 01 May 2023, H.Merijn Brand
+0.29	- 12 Oct 2023, H.Merijn Brand
     * Refine requirements based on CVE's
+    * Workaround groff-1.24 for static docs
 
 0.28	- 06 Jan 2023, H.Merijn Brand
     * It's 2021

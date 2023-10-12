@@ -93,7 +93,7 @@ sub postamble {
 	'doc/VCS-SCCS.3:	SCCS.pm',
 	'	pod2man       < $? > $@',
 	'doc/VCS-SCCS.man:	doc/VCS-SCCS.3',
-	'	nroff -mandoc < $? > $@',
+	'	nroff2man     < $? > $@',
 	'';
     } # postamble
 

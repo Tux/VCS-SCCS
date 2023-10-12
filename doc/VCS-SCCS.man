@@ -1,11 +1,9 @@
 STDIN(1)              User Contributed Perl Documentation             STDIN(1)
 
-
-
-[1mNAME[0m
+NAME
        VCS::SCCS - OO Interface to SCCS files
 
-[1mSYNOPSIS[0m
+SYNOPSIS
         use VCS::SCCS;
 
         my $sccs = VCS::SCCS->new ("SCCS/s.file.pl");   # Read and parse
@@ -40,7 +38,7 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
         my $diff = $sccs->diff (67);        # unified diff between rev 67 and 70
         my $diff = $sccs->diff (63, "5.37");# unified diff between rev 63 and 68
 
-[1mDESCRIPTION[0m
+DESCRIPTION
        SCCS was the dominant version control system until the release of the
        Revision Control System. Today, SCCS is generally considered obsolete.
        However, its file format is still used internally by a few other
@@ -56,13 +54,13 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
        that use it to convert to more modern VCSs like git, Mercurial, CVS, or
        subversion.
 
-[1mFUNCTIONS[0m
-   [1mMeta function[0m
+FUNCTIONS
+   Meta function
        new (<file>)
            The constructor only accepts a single argument: the SCCS file. this
            will typically be something like "SCCS/s.file.c".
 
-           If anything in that file makes "new ()" believe that it is not a
+           If  anything  in  that file makes "new ()" believe that it is not a
            SCCS file, it will return undef. In this stage, there is no way yet
            to tell why "new ()" failed.
 
@@ -71,27 +69,27 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
            single $sccs object.
 
        checksum
-           Returns the checksum that was stored in the file. This module does
-           not check if it is valid, nor does it have functionality to
+           Returns the checksum that was stored in the file. This module  does
+           not  check  if  it  is  valid,  nor  does  it have functionality to
            calculate a new checksum.
 
        users
-           Returns the list of users that was recorded in this file as
+           Returns the list of  users  that  was  recorded  in  this  file  as
            authorized to make deltas/changes.
 
        flags
-           Returns a hash of the flags set for this file (if set at all).
-           VCS::SCCS does not do anything with these flags. They are here for
+           Returns  a  hash  of  the  flags set for this file (if set at all).
+           VCS::SCCS does not do anything with these flags. They are here  for
            the end-user only.
 
-           Note that not all flags are supported by all versions of "admin",
+           Note  that  not all flags are supported by all versions of "admin",
            like "x" is supported on HP-UX, but not in CSSC.
 
            t <type of program>
                File has a user defined value for the %Y% keyword.
 
            v [<program name>]
-               File was flagged to prompt for MR (using <program name> for
+               File was flagged to prompt for MR  (using  <program  name>  for
                validation).
 
            i <keyword string>
@@ -103,11 +101,11 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
                File has a user defined value for the %M% keyword.
 
            f <floor>
-               File was given a floor: the lowest release, a number from 1 to
+               File  was given a floor: the lowest release, a number from 1 to
                9998, which may be get for editing.
 
            c <ceiling>
-               File was given a ceiling: a number less than or equal to 9999,
+               File was given a ceiling: a number less than or equal to  9999,
                which can be retrieved by a get command.
 
            d <default sid>
@@ -129,30 +127,30 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
                that line, no keyword expansion takes place. Not implemented in
                all version.
 
-               This flag is a SUN extension that does not exist in historic
+               This  flag  is  a SUN extension that does not exist in historic
                SCCS implementations and is completely ignored by "VCS::SCCS".
 
            x (HP-UX, SCO)
-               File was flagged to set execution bit on get. This is the
+               File was flagged to set execution  bit  on  get.  This  is  the
                implementation that VCS::SCCS knows about.
 
            x SCHILY|0 (other)
-               Enable SCCS extensions that are not implemented in classical
-               SCCS variants. If the "x" flag is enabled, the keywords %D%,
-               %E%, %G% and %H% are expanded even though not explicitly
+               Enable  SCCS  extensions  that are not implemented in classical
+               SCCS variants. If the "x" flag is enabled,  the  keywords  %D%,
+               %E%,  %G%  and  %H%  are  expanded  even  though not explicitly
                enabled by the "y" flag.
 
                This flag is a SCHILY extension that does not exist in historic
                SCCS implementations.
 
            y <val> ...
-               The list of SCCS keywords to be expanded. If the "y" flag is
-               missing, all keywords are expanded. If the flag is present but
-               the list is empty, no keyword is expanded and no "No id
-               keywords" message is generated. The value "*" controls the
+               The list of SCCS keywords to be expanded. If the  "y"  flag  is
+               missing,  all keywords are expanded. If the flag is present but
+               the list is empty,  no  keyword  is  expanded  and  no  "No  id
+               keywords"  message  is  generated.  The  value "*" controls the
                expansion of the %sccs.include.filename% keyword.
 
-               This flag is a SUN/SCHILY extension that does not exist in
+               This flag is a SUN/SCHILY extension  that  does  not  exist  in
                historic SCCS implementations.
 
                This flag is currently ignored in "VCS::SCCS".
@@ -164,19 +162,19 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
            The comment that was added when the file was created.
 
        current
-           In scalar context returns the current revision number. That is the
+           In  scalar context returns the current revision number. That is the
            number of the file that would be restored by get with no arguments.
 
            In list context, it returns the current revision, version and parts
            of the version, something like "(70, "5.39", 5, 39, undef, undef)".
-           The last 4 numbers are the equivalent of the keywords %R%, %L%,
+           The last 4 numbers are the equivalent of  the  keywords  %R%,  %L%,
            %B%, and %S% for that release.
 
        set_translate (<type>)
-           By default VCS::SCCS will not translate the SCCS keywords (like
-           "%W%", see "translate ()" for the full list). With "set_translate
-           ()", you can select a translation type: "SCCS" is currently the
-           only supported type, "CVS" and "RCS" are planned. Passing a false
+           By  default  VCS::SCCS  will  not translate the SCCS keywords (like
+           "%W%", see "translate ()" for the full list).  With  "set_translate
+           ()",  you  can  select  a translation type: "SCCS" is currently the
+           only supported type, "CVS" and "RCS" are planned. Passing  a  false
            argument will reset translation to none.
 
            You can also pass a hashref that will do custom translation:
@@ -191,14 +189,14 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
 
            any missing keywords will not be translated.
 
-   [1mDelta functions[0m
+   Delta functions
        delta
        delta (<revision>)
        delta (<version>)
-           If called without argument, it returns the delta of the last
+           If  called  without  argument,  it  returns  the  delta of the last
            revision as a hashref.
 
-           If called with a revision argument, it returns you the delta of
+           If called with a revision argument, it returns  you  the  delta  of
            that revision. If there is no such revision, returns undef.
 
            If called with a version argument, it returns you the delta of that
@@ -216,7 +214,7 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
                The number of lines unchanged in this delta
 
            type
-               The type of this delta. Usually this will be a "D", but it
+               The  type  of  this  delta.  Usually this will be a "D", but it
                could also be a "R", which has not (yet) been tested.
 
            version
@@ -253,36 +251,36 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
 
        version
        version (<revision>)
-           If called without argument, it returns the last version, just as
+           If called without argument, it returns the last  version,  just  as
            the second return value of "current ()" in list context.
 
            If called with a revision argument, it returns you the version that
-           matches that revision. It returns undef if no matching version is
+           matches  that  revision. It returns undef if no matching version is
            found.
 
        revision
        revision (<version>)
-           If called without argument, it returns the last revision, just as
+           If called without argument, it returns the last revision,  just  as
            "current ()" returns in scalar context.
 
            If called with a version argument, it returns you the revision that
-           matches that version. It returns undef if no matching revision is
+           matches  that  version. It returns undef if no matching revision is
            found.
 
        revision_map
-           Returns an anonymous list of "revision" - "version" pairs (in
+           Returns an anonymous list  of  "revision"  -  "version"  pairs  (in
            anonymous lists).
 
-   [1mContent function[0m
+   Content function
        body
        body (<revision>)
        body (<version>)
            In scalar context returns the full body for the given revision.  If
-           no revision is passed, the current (most recent) revision is used.
+           no  revision is passed, the current (most recent) revision is used.
            If a version is passed, the matching revision will be used.  If the
            is no matching version or revision, "body ()" returns "undef".
 
-           In list context, "body ()" returns the list of chomped lines for
+           In list context, "body ()" returns the list of  chomped  lines  for
            the given revision.
 
            "body ()" will use the translation set by "set_translate ()".
@@ -291,16 +289,16 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
            NYI
 
        translate (<revision>, <text>)
-           Translate the SCCS keywords in the text passed using the plan set
+           Translate  the  SCCS keywords in the text passed using the plan set
            with "set_translate ()".
 
            The SCCS keywords are
 
-           %M% Module name: either the value of the m flag in the file (see
-               "flags"), or if absent, the name of the SCCS file with the
+           %M% Module name: either the value of the m flag in  the  file  (see
+               "flags"),  or  if  absent,  the  name of the SCCS file with the
                leading s. removed.
 
-           %I% SCCS identification (SID) (%R%.%L%.%B%.%S%) of the retrieved
+           %I% SCCS identification (SID) (%R%.%L%.%B%.%S%)  of  the  retrieved
                text.
 
            %R% Release.
@@ -323,7 +321,7 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
 
            %U% Time newest applied delta was created (HH:MM:SS).
 
-           %Y% Module type: value of the t flag in the SCCS file (see
+           %Y% Module  type:  value  of  the  t  flag  in  the  SCCS file (see
                "flags").
 
            %F% SCCS file name.
@@ -332,45 +330,45 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
 
            %Q% The value of the q flag in the file (see "flags").
 
-           %C% Current line number.  This keyword is intended for identifying
-               messages output by the program such as --this should not have
+           %C% Current line number.  This keyword is intended for  identifying
+               messages  output  by the program such as --this should not have
                happened-- type errors.  It is not intended to be used on every
                line to provide sequence numbers.
 
-           %Z% The 4-character string @(#) @(#) recognizable by what (see
-               [1mwhat[22m(1)).
+           %Z% The 4-character string @(#)  @(#)  recognizable  by  what  (see
+               what(1)).
 
-           %W% A shorthand notation for constructing [1mwhat[22m(1) strings for HP-UX
+           %W% A shorthand notation for constructing what(1) strings for HP-UX
                system program files.  %W%=%Z%%M%horizontal-tab%I%
 
-           %A% Another shorthand notation for constructing [1mwhat[22m(1) strings for
+           %A% Another shorthand notation for constructing what(1) strings for
                non-HP-UX system program files.  %A% = %Z%%Y% %M% %I%%Z%
 
-           For now, %D%, %H%, %T%, %G%, %F%, %P%, and %C% are not translated.
-           I see no use for %D%, %H%, or %T%. People that use %G% have enough
-           problems already, so they should be able to cope, %F% and %P% lose
+           For  now, %D%, %H%, %T%, %G%, %F%, %P%, and %C% are not translated.
+           I see no use for %D%, %H%, or %T%. People that use %G% have  enough
+           problems  already, so they should be able to cope, %F% and %P% lose
            their meaning after conversion and %C% might be done later.
 
-           If you convert from SCCS to git, it might be advisable to not do
-           any translation at all, and leave the keywords in, just the way
+           If you convert from SCCS to git, it might be advisable  to  not  do
+           any  translation  at  all,  and leave the keywords in, just the way
            they are, and create a checkout hook.
 
-[1mSPECIFICATION[0m
-       SCCS file format is reasonable well documented. I have included a
+SPECIFICATION
+       SCCS file format is reasonable  well  documented.  I  have  included  a
        manual page for sccsfile for HP-UX in doc/
 
-[1mEXAMPLES[0m
+EXAMPLES
        See the files in examples/ for my attempts to start converters to other
        VCSs
 
-[1mBUGS AND LIMITATIONS[0m
-       As this module is created as a base for conversion to more useful and
+BUGS AND LIMITATIONS
+       As  this  module is created as a base for conversion to more useful and
        robust VCSs, it is a read-only interface to the SCCS files.
 
        Translation is incomplete and might be questionable, but at least there
        is a workaround.
 
-[1mTODO[0m
+TODO
         * improve documentation
         * implement diff ()
         * more tests
@@ -383,10 +381,10 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
         * errors and warnings
         * provide hooks to VCS::
 
-[1mDIAGNOSTICS[0m
+DIAGNOSTICS
        First errors, than diagnostics ...
 
-[1mSEE ALSO[0m
+SEE ALSO
        SCCS
          source code at http://sccs.sourceforge.net/
 
@@ -396,10 +394,10 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
 
        CSSC
          https://sourceforge.net/projects/cssc A GNU project that aims to be a
-         drop-in replacement for SCCS. It is written in c++ and therefor
-         disqualifies to be used at any older OS that does support SCCS but
+         drop-in replacement for SCCS. It  is  written  in  c++  and  therefor
+         disqualifies  to  be  used at any older OS that does support SCCS but
          has no C++ compiler. And even if you have one, there is a good chance
-         it won't build or does not bass the basic tests. I did not get it to
+         it won't build or does not bass the basic tests. I did not get it  to
          work.
 
        VCS
@@ -408,15 +406,13 @@ STDIN(1)              User Contributed Perl Documentation             STDIN(1)
        GIT
          http://www.kernel.org/pub/software/scm/git/docs/
 
-[1mAUTHOR[0m
+AUTHOR
        H.Merijn Brand <h.m.brand@xs4all.nl>
 
-[1mLICENSE AND COPYRIGHT[0m
+LICENSE AND COPYRIGHT
        Copyright (C) 2007-2023 H.Merijn Brand
 
        This library is free software; you can redistribute it and/or modify it
        under the same terms as Perl itself.
 
-
-
-perl v5.36.0                      2023-05-01                          STDIN(1)
+perl v5.38.0                      2023-10-12                          STDIN(1)
