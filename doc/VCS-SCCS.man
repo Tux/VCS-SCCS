@@ -410,9 +410,9 @@ AUTHOR
        H.Merijn Brand <h.m.brand@xs4all.nl>
 
 LICENSE AND COPYRIGHT
-       Copyright (C) 2007-2023 H.Merijn Brand
+       Copyright (C) 2007-2024 H.Merijn Brand
 
        This library is free software; you can redistribute it and/or modify it
        under the same terms as Perl itself.
 
-perl v5.38.2                      2024-01-04                          STDIN(1)
+perl v5.40.0                      2024-06-18                          STDIN(1)

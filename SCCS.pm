@@ -1,6 +1,6 @@
 #!/pro/bin/perl
 
-# Copyright (c) 2007-2023 H.Merijn Brand.  All rights reserved.
+# Copyright (c) 2007-2024 H.Merijn Brand.  All rights reserved.
 
 package VCS::SCCS;
 
@@ -975,7 +975,7 @@ H.Merijn Brand <h.m.brand@xs4all.nl>
 
 =head1 LICENSE AND COPYRIGHT
 
-Copyright (C) 2007-2023 H.Merijn Brand
+Copyright (C) 2007-2024 H.Merijn Brand
 
 This library is free software; you can redistribute it and/or modify
 it under the same terms as Perl itself.
