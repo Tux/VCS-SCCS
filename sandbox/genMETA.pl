@@ -4,11 +4,10 @@ use strict;
 use warnings;
 
 use Getopt::Long qw(:config bundling nopermute);
-my $check = 0;
-my $opt_v = 0;
 GetOptions (
-    "c|check"		=> \$check,
-    "v|verbose:1"	=> \$opt_v,
+    "c|check"		=> \ my $check,
+    "u|update!"		=> \ my $update,
+    "v|verbose:1"	=> \(my $opt_v = 0),
     ) or die "usage: $0 [--check]\n";
 
 use lib "sandbox";
@@ -19,6 +18,7 @@ my $meta = genMETA->new (
     );
 
 $meta->from_data (<DATA>);
+$meta->security_md ($update);
 $meta->gen_cpanfile ();
 
 if ($check) {
@@ -58,12 +58,12 @@ configure_requires:
 configure_recommends:
     ExtUtils::MakeMaker: 7.22
 configure_suggests:
-    ExtUtils::MakeMaker: 7.70
+    ExtUtils::MakeMaker: 7.72
 test_requires:
     Test::More:          0
     Test::NoWarnings:    0
 test_recommends:
-    Test::More:          1.302207
+    Test::More:          1.302209
 resources:
     license:             http://dev.perl.org/licenses/
     repository:          https://github.com/Tux/VCS-SCCS

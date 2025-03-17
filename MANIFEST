@@ -4,6 +4,7 @@ Makefile.PL
 README
 cpanfile
 CONTRIBUTING.md
+SECURITY.md
 SCCS.pm
 doc/sccsfile.4
 doc/sccsfile.man

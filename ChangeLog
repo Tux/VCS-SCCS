@@ -1,8 +1,9 @@
-0.29	- 18 Jun 2024, H.Merijn Brand
+0.29	- 17 Mar 2025, H.Merijn Brand
     * Refine requirements based on CVE's
     * Workaround groff-1.24 for static docs
     * It's 2024
     * Tested with perl-5.40
+    * Add SECURITY.md
 
 0.28	- 06 Jan 2023, H.Merijn Brand
     * It's 2021
